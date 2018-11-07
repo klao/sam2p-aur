@@ -16,16 +16,8 @@ optdepends=('ghostscript: PS, EPS, PDF support'
 	    'tif22pnm: for tiff support'
 	    'png22pnm: for png support')
 # 'netpbm: PNG support'
-source=("https://github.com/pts/sam2p/releases/download/v$pkgver/$pkgname-$pkgver.tar.gz" makedep.patch)
-sha256sums=('5bc5b5a526bc798315da23b02564d6a1bfea51b364b8b03f76695a833f6d2bed'
-            '73c18ac87fa8fc498ea14fb2ed162e50470fa40ce4f273bbc13dfaa2b13c8f7d')
-noextract=("$pkgname-$pkgver.tar.gz")
-
-prepare() {
-  tar xf $pkgname-$pkgver.tar.gz
-  cd $pkgname-$pkgver
-  patch -p1 < $srcdir/makedep.patch
-}
+source=("https://github.com/pts/sam2p/releases/download/v$pkgver/$pkgname-$pkgver.tar.gz")
+sha256sums=('5bc5b5a526bc798315da23b02564d6a1bfea51b364b8b03f76695a833f6d2bed')
 
 package() {
   cd $pkgname-$pkgver
