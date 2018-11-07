@@ -23,7 +23,7 @@ build() {
   cd $pkgname-$pkgver
   autoconf
   CXX="g++ --std=c++98" ./configure --prefix=/usr --enable-lzw --enable-gif
-  PERL5LIB+=. make all
+  make all
 }
 
 package() {
