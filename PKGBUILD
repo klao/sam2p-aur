@@ -19,11 +19,15 @@ optdepends=('ghostscript: PS, EPS, PDF support'
 source=("https://github.com/pts/sam2p/releases/download/v$pkgver/$pkgname-$pkgver.tar.gz")
 sha256sums=('5bc5b5a526bc798315da23b02564d6a1bfea51b364b8b03f76695a833f6d2bed')
 
-package() {
+build() {
   cd $pkgname-$pkgver
   autoconf
   CXX="g++ --std=c++98" ./configure --prefix=/usr --enable-lzw --enable-gif
   PERL5LIB+=. make all
+}
+
+package() {
+  cd $pkgname-$pkgver
   install -Dm755 sam2p $pkgdir/usr/bin/sam2p
   install -Dm644 README "$pkgdir"/usr/share/sam2p/docs/README
 }
