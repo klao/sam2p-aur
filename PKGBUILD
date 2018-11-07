@@ -21,7 +21,6 @@ sha256sums=('5bc5b5a526bc798315da23b02564d6a1bfea51b364b8b03f76695a833f6d2bed')
 
 build() {
   cd $pkgname-$pkgver
-  autoconf
   CXX="g++ --std=c++98" ./configure --prefix=/usr --enable-lzw --enable-gif
   make all
 }
